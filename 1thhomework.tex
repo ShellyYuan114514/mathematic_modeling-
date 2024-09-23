@@ -1,0 +1,98 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphics}
+
+\begin{document}
+
+\paragraph*{椅子问题}
+
+\subparagraph*{假设：} 
+（1） 椅子是长方形的，四条腿一样长，四条腿的连线同样成长方形。（2）地面是数学上的连续曲面。
+
+\subparagraph*{解：}
+设$A,B,C,D$为长方形椅子的四个脚。其中$A,B$两脚和$C,D$两脚与地面的距离之和分别为$f(\theta), g(\theta)$。其中$\theta$为椅面绕其法向量旋转的角度。
+
+椅子在任意位置，总有三只脚可以着地，故而对于任意$\theta$总有$f(\theta),g(\theta)$中至少一个为零。不妨假设$g(0)=0,f(0)>0$，且$f(\theta),g(\theta)$均为连续函数。
+
+现在需要证明：存在$\theta_0$，使得$f(\theta_0)=g(\theta_0)=0$，此时椅子即放平稳。
+作辅助函数：$$h(\theta)=f(\theta)-g(\theta)$$
+现将椅子旋转$180^\circ$，则对边的椅子腿互换，有：
+$$f(\pi)=0,g(\pi)>0$$
+则$h(x)$也是连续函数，且$h(0)>0,h(\pi)<0$,由连续函数的介值定理可知，比存在$\theta_0 \in (0,\pi)$使得$h(\theta_0)=0$, 则有$g(\theta_0)=f(\theta_0)=0$，\textbf{证毕}。
+
+
+\paragraph*{单摆问题}
+
+\subparagraph*{假设：}（1）单摆受到的阻力和速度成正比，比例系数为$k$。（2）单摆的周期$t$，质量为$m$，重力加速度$g$，摆长$l$，受到的阻力为$F$，摆的速度为$v$，摆动幅角$\theta$。
+
+\subparagraph*{解：}
+上述物理量（按出现的先后顺序）的量纲分别为$MT^{-1},T,M,LT^{-2}$ $MLT^{-2},LT^{-1}$，
+（$\theta$为无量纲量）构造无量纲量：
+$$
+\sigma = k^{p_1}t^{p_2}m^{p_3}g^{p_4}l^{p_5}F^{p_6}v^{p_7}\theta^{p_8}
+$$
+则有其量纲：
+$$
+M^{p_1+p_3+p_6}L^{p_4+p_5+p_6+p_7}T^{-p_1+p_2-2p_4-2p_6-p_7}
+$$
+故而
+$$
+\begin{cases}
+    p_1+p_3+p_6=0\\
+    p_4+p_5+p_6+p_7=0\\
+    -p_1+p_2-2p_4-2p_6-p_7=0\\
+\end{cases}
+$$
+其中$p_8$可以任取。
+原方程组可以写成：
+$$
+\begin{pmatrix}
+    1&0&1&0&0&1&0\\
+    0&0&0&1&1&1&1\\
+    -1&1&0&-2&0&-2&-1
+\end{pmatrix}
+\begin{pmatrix}
+    p_1\\
+    p_2\\
+    p_3\\
+    p_4\\
+    p_5\\
+    p_6\\
+    p_7\\
+\end{pmatrix}
+=0
+$$
+解得原方程组有四个基础解向量，加上$\theta$的次数后一共有五个，如下：
+$$
+\xi_1 = (-1,-1,1,0,0,0,0,0)^T
+$$
+$$
+\xi_2 = (0,-2,0,-1,1,0,0,0)^T
+$$
+$$\xi_3 = (-1,-1,0,-1,0,1,0,0)^T$$
+$$\xi_4 = (0,-1,0,-1,0,0,1,0)^T$$
+$$\xi_5 = (0,0,0,0,0,0,0,1)^T$$
+故而有：
+$$\sigma_1 =\frac{m}{kt}$$
+$$\sigma_2 = \frac{l}{gt^2}$$
+$$\sigma_3 =\frac{F}{kgt}$$
+$$\sigma_4 = \frac{v}{gt}$$
+$$\sigma_5 = \theta$$
+根据 Buckingham $\Pi $定理，有$Q(\sigma_1,\cdots,\sigma_5)=0$与$q(k,m,t,l,g,v,F,\theta)=0$等价
+故而$Q(\sigma_1,\cdots,\sigma_5)=0$即为$t$的表达式。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
