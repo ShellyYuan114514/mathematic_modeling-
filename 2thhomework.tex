@@ -1,0 +1,89 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\newcommand{\df}{\mathrm{~d}}
+
+\begin{document}
+
+\paragraph{淋雨问题}
+
+\subparagraph{假设1：}（1）人面前的雨滴在空间中是稠密、连续的，即空间中的每一点都有雨滴，不存在“断点”。（2）将雨滴中的人体近似成一个圆柱体，高$h_0$，半径$r_0$，行走速度$\vec{v}$。
+
+\subparagraph{解：}由于这场雨近似稠密，故而可以把雨看作一个流场，即可描述该流场中每一点的速度：
+$$\mathbf{v}(x,y,z)=X(x,y,z)\vec{i}+Y(x,y,z)\vec{j}+Z(x,y,z)\vec{k}$$
+三个向量分别描述雨滴沿$x$，$y$，$z$三轴的速度。
+
+然后可以给出人体的的曲面$S$（将雨滴中的人体近似成一个圆柱体）：首先是人的头部
+$$
+S_1 :
+\begin{cases}
+    x^2+y^2=r_0\\
+    z=h_0
+\end{cases}
+$$
+然后是身体：
+$$
+S_2:
+x^2+y^2=r_0 ~~ (0 \leqslant z < h_0)
+$$
+脚下被挡住，可以近似看作不会淋到雨，故而不用给出方程，即$S=S_1 \cup S_2$。假设$S$上每一点的法向量是$\vec{n}(x,y,z)$。
+
+现在求出雨场相对人体的速度，就是$\mathbf{v}-\vec{v}$。故而其单位时间内打到人体上的雨水体积即：
+$$
+\left | \iint_{S}(\mathbf{v}-\vec{v}) \cdot \vec{n} \df S \right | = \left |\iint_S X-v_x \df y \df z + \iint_S Y-v_y \df x \df z + \iint_S Z-v_z \df x \df y \right |
+$$
+这是一个较为复杂的带参量的二重积分，并不方便计算，但是等式左端的积分式与高中电磁学计算磁通量的相似性提示我们：它可以简化为有关人体曲面对于流场的投影面的积分。即如下：
+$$
+\left | \iint_{S}(\mathbf{v}-\vec{v}) \cdot \vec{n} \df S \right | = \left | \iint_{S_1}(\mathbf{v}-\vec{v}) \cdot \vec{n_1} \df S_1 \right |+ \left |\iint_{S_2}(\mathbf{v}-\vec{v}) \cdot \vec{n_2} \df S_2  \right |
+$$
+（实际上由于雨场都是“穿过”曲面外侧的，两个部分的积分符号不变，所以能直接分成两个绝对值）
+
+我们不妨将某一区域内的雨滴近似地认为运动方向相同（生活经验）, 而且人通常不会左脚踩右脚上天（$v_z=0$）即：
+$$\mathbf{v}-\vec{v}=(a-v_x,b-v_y,c)$$
+$S_2$曲面的法向量为$\vec{n_2}=(0,0,1)$，关于$S_2$的积分式可以简化为
+$$
+A_{S_2 }\cdot |\cos <\mathbf{v}-\vec{v},\vec{n_2 }>| \cdot |\mathbf{v}-\vec{v}|
+$$
+$$
+=
+\pi r_0^2 \cdot |c|
+$$
+对$S_2$表面来讲，单位时间内淋雨的量和人的跑动方向以及速度没关系，人的速度越快，到达避雨的地方时间越短，淋雨淋得越少。
+
+对于$S_1$的讨论也一样。由于$S_1$关于$z$轴具有旋转不变性，于是我们不妨假设：雨场在地面的投影正交于这个圆柱的一个切面如图：
+\begin{figure}[htbp]
+    \includegraphics[width=\textwidth]{/Users/zitingyuan/Desktop/mathematic modelling/usual homework/WechatIMG1145.jpg}
+\end{figure}
+
+中间虚线y轴即是前文所言切面。则此时
+
+$$
+\iint_{S_1}(\mathbf{v}-\vec{v}) \cdot \vec{n_1} \df S_1 = 2r_0h_0 \cdot \cos<\mathbf{v}-\vec{v},\vec{n_1}> |\mathbf{v}-\vec{v}| = 2r_0h_0 \cdot (a-v_x)
+$$
+单位时间内人体柱面部分的淋雨量与人行走的速度有关。
+
+假设人行走的距离为$l$。有：
+$$
+V = t \cdot \iint_{S_1}(\mathbf{v}-\vec{v}) \cdot \vec{n_1} \df S_1 = \frac{l}{\sqrt{v_x^2+v_y^2}}(a-v_x)
+$$
+依然有走得越快淋的越少。
+
+故而，我们可以得出结论，走路越快，淋雨越少。以后下雨走快点到目的地就不用打伞了。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
