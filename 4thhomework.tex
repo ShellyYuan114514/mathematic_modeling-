@@ -1,0 +1,118 @@
+\documentclass{ctexart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\newcommand{\df}{\mathrm{~d}}
+
+\begin{document}
+
+\paragraph*{Two-stage rockets}
+
+\subparagraph*{Basic hypothesis 1 :}
+
+(1) $\mathbf{m}(t)$ is the mass of the rocket as a function of time $t$.  (2)$\df$ is the differential operator. (3) the velocity of gas jet out of the rocket is a constant $v_1$ relatively to the velocity of rocket.(4) $\mathbf{v}(t)$ is the velocity of rocket as a function of time, $o$ indicates infinite small of higher order. 
+
+\subparagraph*{Solution :}
+
+Assume that the loss of mass is continuous, and according momentum conservation law:
+$$
+\mathbf{m}(t) \cdot \mathbf{v}(t) = \mathbf{m}(t+ \Delta t) \cdot \mathbf{v}(t + \Delta t ) - \frac{\df \mathbf{m}}{\df t}\Delta t \cdot (\mathbf{v}(t)-v_1)   + o(\Delta t)
+$$
+in which 
+$$
+\mathbf{m}(t+ \Delta t) \cdot \mathbf{v}(t + \Delta t )=\mathbf{m}(t) \cdot \mathbf{v} (t + \Delta t ) + \mathbf{v}(t + \Delta t)\frac{\df \mathbf{m}}{\df t} \Delta t  + o(\Delta t)
+$$
+when $\Delta t \to 0$,
+$$
+\mathbf{m}(t) \cdot \mathbf{v}(t) - \mathbf{m}(t+ \Delta t) \cdot \mathbf{v}(t + \Delta t ) = - \frac{\df \mathbf{m}}{\df t}\Delta t \cdot (\mathbf{v}(t)-v_1)   + o(\Delta t)
+$$
+The left end of the equation equals to 
+$$
+\mathbf{m}(t) \cdot \mathbf{v}(t) - \mathbf{m}(t) \cdot \mathbf{v} (t + \Delta t ) - \mathbf{v}(t + \Delta t)\frac{\df \mathbf{m}}{\df t} \Delta t 
+$$
+which is 
+$$
+\mathbf{m}(t)\cdot[\mathbf{v}(t) - \mathbf{v} (t + \Delta t )]-\mathbf{v}(t + \Delta t)\frac{\df \mathbf{m}}{\df t} \Delta t 
+$$
+divide both end of the equation by $\Delta t $ 
+$$
+\mathbf{m} \cdot \frac{\df \mathbf{v}}{\df t } = -v_1 \frac{\df \mathbf{m}}{\df t }
+$$
+do integral on both side and thus($m_0$ is the initial mass of the rocket,$v_0 =0 $ is the initial velocity ) 
+$$
+\mathbf{v}(t) = v_1 \ln \frac{m_0}{\mathbf{m}(t)} + v_0
+$$
+
+\subparagraph*{Basic hypothesis 2 :}
+
+The mass of the effective load is $m_p$, the mass of stage 1 is $m_1$, the mass of stage 2 is $m_2$, $m_0 = m_1 +m_2 +m_p$. $\lambda $ is the portion of structural mass $m_s$ to  the mass of every stage.
+
+\subparagraph*{Pragmatization : }
+
+From the launch to the 1st stage burns out, the total initial mass is $m_0= m_1 +m_2 + m_p$, and the mass when the 1st stage burns out is $\mathbf{m}(t_1)=\lambda m_1 +m_2 +m_p$, therefor the velocity of the rocket when the 1st stage burns out will be ($t_1$ is the time when the 1st stage burns out)
+$$
+\mathbf{v}(t_1)= v_1 \ln \frac{m_0}{\lambda m_1 + m_2 +m_p}
+$$
+From the 1st stage burns out to the 2nd stage burns out, the initial mass is $m_2 + m_p$, the final mass is $\lambda m_2 + m_p$, the velocity of the rocket when the 2nd burns out will be 
+$$
+\mathbf{v}(t_2) = \mathbf{v}(t_1)+ v_1 \ln \frac{m_2 + m_p}{\lambda m_2 + m_p} = v_1 \ln \left ( \frac{ m_1 + m_2 +m_p}{\lambda m_1 + m_2 +m_p} \cdot \frac{m_2+m_p}{\lambda m_2 + m_p} \right )
+$$
+To maximize $m_p$:
+\newline
+\noindent Let $a_1 = \frac{m_0}{m_2+m_p}$, $a_2 = \frac{m_2+m_p}{m_p}$, therefore
+$$
+\mathbf{v}(t_2)/ v_1= \ln \left( \frac{a_1}{1+\lambda(a_1-1)} \cdot \frac{a_2}{1+\lambda(a_2-1)} \right)
+$$
+when $a_1 \cdot a_2 = m_0/m_p$ reaches minimum as $a_1 =a_2$(AMGM inequality), $m_p$ reaches maximum.
+\newline
+\noindent$\mathbf{v}(t_2) = 10.5 km/s$ if the rocket can be sent into space, and $v_1 = 3km/s$, and thus we have
+$$
+\frac{m_0}{m_p} = \left( \frac{1-\lambda }{\exp(\mathbf{v}(t_2)/2v_1)-\lambda}\right)^2 \approx 148.84
+$$
+which is the answer.
+
+\paragraph*{Leaking bucket problem}
+
+\subparagraph*{Basic hypothesis:}
+(1)The bucket is a cone, with its height $h_0$ being 20 feet(6.096$m$) and the radius of the bottom $r_0$ being 10 feet(3.048$m$).(2) The cone is considers as a pile of disc with thickness $\df h$ and at $h$. (3) The area of the hole at the bottom is $A$, the velocity of stream running out of the hole is $v$, and the length of water running out it $\df s$ (4) $\df$ is the differential operator.(5) The mass of disc is $\df m $ and $g=9.8m/s^2$ is the gravity acceleration.
+
+\subparagraph*{Solution :}
+According to conservation of energy:
+$$
+(\df m)g h=\frac{1}{2}(\df m )v^2 \Longleftrightarrow v = \sqrt{2gh}
+$$
+The angle between the symmetric axis of the cone and the generatrix is $\theta = \arctan \frac{r_0}{h_0}$. Therefore,
+$$
+A \df s = -[(h_0-h)\tan \theta ]^2\pi \df h \Longleftrightarrow \df h = -\frac{4A}{\pi (h_0-h)^2} \df s 
+$$
+and $\frac{\df s}{\df t}= v$, therefore,
+$$
+\df h = - \frac{4A}{\pi (h_0-h)^2} \cdot \sqrt{2gh} \df t 
+$$
+$$
+\frac{(h_0-h)^2}{\sqrt{h}} \df h = -\frac{4A}{\pi}\sqrt{2g} \df t
+$$
+do integral on both side of the equation 
+$$
+\int \frac{h_0^2+h^2-2hh_0}{\sqrt{h}} \df h = -\int \frac{4A}{\pi}\sqrt{2g} \df t
+$$
+$$
+2h_0^2\sqrt{h}+\frac{2h^{\frac{5}{2}}}{5}-2h_0\frac{2}{3}h^\frac{3}{2} = -\frac{4A}{\pi}\sqrt{2g} \cdot t +C
+$$
+When $t=0s$, $h=h_0$, therefore $C \approx 97.87$, when $h=0 m$, $t \approx 59.49 s$, which is the answer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

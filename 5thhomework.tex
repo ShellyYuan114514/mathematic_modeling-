@@ -1,0 +1,102 @@
+\documentclass[UTF8]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\paragraph*{Forest Management}
+
+\subparagraph*{Basic Hypothesis:}
+\begin{itemize}
+    \item [(1)] The growth of Trees is represented by height level.
+    \item [(2)] At the  beginning, the trees in the forest are at different height distribution. The trees grow differently during a growing period(one year). To maintain harvest, only part of the  trees are cut down once a year and some saplings are planted. The left and the newly planted are at the same height level as beginning. $x_i$ represents the numbers of tree left in the $i$th level (including the newly planted ones), and $y_i$represents the harvested in the $i$th level.
+    \item [(3)]$x_1+x_2+\cdots+x_n=S$
+    \item [(4)]A portion ($g_i$) of trees of the $i$th height level , will be in the $i+1$th level at next harvest, and a portion  ($g'_i$)  will be in the $i+2$ level.
+\end{itemize} 
+
+\subparagraph*{Solution:\\}
+
+According to the hypothesis, if $\vec{x}=(x_1,x_2,\cdots,x_n)^T$ and $\vec{y}=(y_1,y_2,\cdots,y_n)^T$, the height distribution at next harvest will be:
+\begin{equation}
+    \begin{aligned}
+    [(1-g_1-g'_1)x_1 ~~ g_1x_1+(1-g_2-g'_2)x_2 ~~ g'_1x_1+g_2x_2+(1-g_3-g'_3)x_3 & \\ \cdots g_{n-1}x_{n-1}+g'_{n-2}x_{n-2}+x_n]\triangleq G\vec{x}
+    \end{aligned}
+\end{equation} 
+in which the growth matrix will be 
+\begin{equation}
+    \begin{bmatrix}
+        1-g_1-g'_1\\
+        g_1 & 1-g_2-g'_2\\
+        g'_1& g_2&1-g_3-g'_3\\
+        0   & g'_2&g_3 & 1-g_4-g'_4\\
+        \vdots& \vdots &\vdots &&\ddots\\
+        0     & 0      & \cdots &g'_{n-2}&g_{n-1}&1
+    \end{bmatrix}.
+\end{equation}
+Then let $R=\begin{bmatrix}
+    1&1&\cdots&1\\
+    0&0&\cdots&0\\
+    \vdots&\vdots&&\vdots\\
+    0  &0 &&0\\ 
+
+\end{bmatrix}$, due to hypothesis (2), 
+\begin{equation}
+    G\vec{x}-\vec{y}+R\vec{y}=\vec{x} \Longleftrightarrow (E-R)\vec{y}=(G-E)\vec{x}
+\end{equation}
+which in the form of components:
+\begin{equation}
+    \begin{cases}
+        y_2+\cdots y_n=(g_1+g'_1)x_1\\
+        y_2 = g_1x_1-(g_2+g'_2)x_2\\
+        y_3 = g'_1x_1+g_2x_2-(g_3+g'_3)x_3\\
+        \cdots\\
+        y_n = g'_{n-2}x_{n-2}+g_{n-1}x_{n-1}\\
+    \end{cases}.
+\end{equation}
+Assume that the price for an $i$th level tree is $p_i$, then the total value of harvest will be (the first level saplings are too small to be sold):
+$$
+total=\sum_{i=2}^{n}y_ip_i
+$$ 
+$$
+total =
+p_2(g_1x_1-(g_2+g'_2)x_2)+\cdots+p_n(g'_{n-2}x_{n-2}+g_{n-1}x_{n-1})
+$$
+$$
+total =\left( p_2g_1x_1+\sum_{i=2}^{n-1}(p_{i+1}-p_i)g_ix_i \right)+ \left(p_3g'_1x_1\sum_{i=2}^{n-2}(p_{i+2}-p_i)g'_ix_i\right).
+$$
+And the constraints are 
+$$
+\begin{cases}
+    x_1+x_2+\cdots+x_n=S\\
+    x_i \geq 0\\
+    0\leq g_ix_i\leq g_{i-1}x_{i-1} 
+\end{cases}
+(i=2,\cdots,n).
+$$
+To find the maximum of $total$ become a linear optimization problem.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
